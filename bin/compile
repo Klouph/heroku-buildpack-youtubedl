@@ -8,13 +8,15 @@ echo "-----> Install youtube-dl"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
 
-DOWNLOAD_URL="https://yt-dl.org/downloads/2018.01.21/youtube-dl-2018.01.21.tar.gz"
+DOWNLOAD_URL="https://yt-dl.org/downloads/latest/youtube-dl"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
+mkdir -p youtube
+cd youtube
 curl -L --silent $DOWNLOAD_URL | tar xz
 
 echo "exporting PATH and LIBRARY_PATH" | indent
